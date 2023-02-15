@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePizzaHub.DAL", "ePizzaHub.DAL\ePizzaHub.DAL.csproj", "{57B07BBE-FE37-4CD9-8A7C-ECF6F829DE79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57B07BBE-FE37-4CD9-8A7C-ECF6F829DE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B07BBE-FE37-4CD9-8A7C-ECF6F829DE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B07BBE-FE37-4CD9-8A7C-ECF6F829DE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B07BBE-FE37-4CD9-8A7C-ECF6F829DE79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EDBF41E-FF99-4B81-AED6-7CD567DCD249}
+	EndGlobalSection
+EndGlobal
