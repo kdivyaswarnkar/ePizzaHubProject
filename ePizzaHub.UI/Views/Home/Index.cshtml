@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_FullSizeLayout";
+}
+
+<div style="background:#1a5ca3">
+    <div class="container pt-4 pb-2">
+        <div class="row">
+            <div class="col-sm-8 text-white">
+                <h1>ePizza Hub's Online Ordering Website!</h1>
+                <p class="pb-4">
+                  Yummy pizza delivered fast at your door step
+                </p>
+                <p>
+                    <a href="#heading" class="btn btn-success">Order Online Now</a>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <img src="~/images/pizza-header.png" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-4">
+    <h2>Pizza, Desset and Beverages</h2>
+    <hr />
+    <div class="row mt-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4 mb-3">
+                <div class="card">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">@item.Name <span class="float-end font-20">₹@item.UnitPrice.ToString("##.#")</span></h4>
+                        <p class="card-text">@item.Description</p>
+                        <p>
+                            <span class="pt-1 d-inline-block"> Size: Regular</span>
+                            <span class="float-end font-20">
+                                <a href="javascript:void(0)" onclick="AddToCart('@item.Id','@item.Name','@item.UnitPrice',1)" class="btn btn-outline-primary">Add To Cart</a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="toast fade hide" data-autohide="false" id="toastCart">
+    <div class="toast-header">
+        <strong class="me-auto text-primary">Notification</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body"></div>
+</div>
+@section Scripts{
+    <script src="~/js/cart.js"></script>
+}

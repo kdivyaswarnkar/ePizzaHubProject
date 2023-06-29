@@ -1,0 +1,170 @@
+﻿@model ePizzaHub.UI.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    .gradient-custom-3 {
+        /* fallback for old browsers */
+        background: #84fab0;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+
+    .gradient-custom-4 {
+        /* fallback for old browsers */
+        background: #84fab0;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
+</style>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+
+<body>
+    <div class="pt-3 pb-1">
+        <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card gradient-custom-3" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <svg class="bi bi-person-circle mx-auto my-3" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" viewBox="0 0 16 16" style="display: block; margin: auto">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                            </svg>
+                            <h2 class="text-center mb-4">LogIn</h2>
+                            <hr />
+                            <form asp-action="Login" asp-route-returnUrl="@Context.Request.Query["returnUrl"]" class="needs-validation" method="post" novalidate>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group mb-3">
+                                    <label asp-for="Email" class="form-label" for="inputEmail">Email</label>
+                                    <input asp-for="Email" type="email" class="form-control" id="inputEmail" placeholder="Email" required />
+                                    <span asp-validation-for="Email" class="text-danger invalid-feedback">Please enter a valid email address</span>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label asp-for="Password" class="form-label" for="inputPassword">Password</label>
+                                    <input type="password" asp-for="Password" class="form-control" id="inputPassword" placeholder="Password" required />
+                                    <span asp-validation-for="Password" class="text-danger invalid-feedback">Please enter your password to continue</span>
+                                </div>
+                                <div class="mb-3">
+                                    <div>
+                                        <div class="login-help">
+                                            <p class="login-help">Forgot your password? <a href="#">Click here to reset it</a>.</p>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkRemember">
+                                            <label class="form-check-label" for="checkRemember">Remember me</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                                        Sign in
+                                    </button>
+                                </div>
+
+                                <p class="text-center text-muted mt-2">
+                                    Don't have an account? <a href="SignUp"
+                                                              class="fw-bold text-body"><u style="color:rgb(0, 150, 255)">Sign Up</u></a>
+                                </p>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @*  </div>
+    </div>
+    </div>*@
+
+    <!-- JavaScript for disabling form submissions if there are invalid fields -->
+    <script>
+        // Self-executing function
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
+    </div>
+
+
+
+    </section>
+
+    @*
+
+    <h1>Login</h1>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form asp-action="Login" asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+    <label asp-for="Email" class="control-label"></label>
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="Password" class="control-label"></label>
+    <input type="password" asp-for="Password" class="form-control" />
+    <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <input type="submit" value="Login" class="btn btn-primary" />
+    </div>
+    </form>
+    </div>
+    </div>
+    *@
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
